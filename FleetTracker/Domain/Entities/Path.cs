@@ -2,6 +2,6 @@
 
 public class Path
 {
-    private Car Car { get; }
-    
+    public Car car { get; private set;  }
+    public List<LocationPoint> locationPoints { get; private set; }
 }
