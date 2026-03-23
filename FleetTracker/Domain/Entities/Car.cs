@@ -1,8 +1,7 @@
 ﻿namespace FleetTracker.Domain.Entities;
 
-public class Car
+public class Car : EntityBase
 {
-    public Guid Id { get; }
     public string TagUid { get; }
     public string Model { get; set; }
     public string Plate { get; set; }
@@ -10,7 +9,6 @@ public class Car
 
     public Car(string tagUid, string model, string plate, float averageConsumption)
     {
-        Id = Guid.NewGuid();
         TagUid = tagUid;
         Model = model;  
         Plate = plate;
