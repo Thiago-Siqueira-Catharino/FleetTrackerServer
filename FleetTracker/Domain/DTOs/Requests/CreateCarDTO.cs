@@ -2,16 +2,16 @@ namespace FleetTracker.Domain.DTOs;
 
 public class CreateCarDTO
 {
-    public string tagUid { get; set; }
+    public Guid tagUid { get; set; }
     public string model { get; set; }
     public string plate { get; set; }
 
-    public CreateCarDTO(string tagUid, string model, string plate)
+    public CreateCarDTO(Guid tagUid, string model, string plate)
     {
         //Verification of every single parameter
         Dictionary<String, String> parameters = new Dictionary<String, String>
         {
-            { "taguid", tagUid },
+            { "taguid", tagUid.ToString() },
             { "model", model },
             { "plate", plate }
         };
