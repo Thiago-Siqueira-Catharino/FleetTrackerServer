@@ -1,4 +1,4 @@
-namespace FleetTracker.Domain.DTOs;
+namespace FleetTracker.Domain.DTOs.Requests;
 
 public class CreateCarDTO
 {
