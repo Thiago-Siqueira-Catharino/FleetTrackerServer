@@ -1,13 +1,13 @@
 ﻿namespace FleetTracker.Domain.Entities;
 
-public class Path
+public class Path : EntityBase
 {
-    public Car car { get; private set;  }
+    public Guid carId { get; private set;  }
     private List<LocationPoint> locationPoints { get; set; } = new List<LocationPoint>();
 
-    public Path(Car car)
+    public Path(Guid carId)
     {
-        this.car = car;
+        this.carId = carId;
     }
 
     public void AddLocationPoint(LocationPoint locationPoint)
