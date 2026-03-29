@@ -1,13 +1,15 @@
-﻿namespace FleetTracker.Domain.Entities;
+﻿using FleetTracker.Domain.ValueObjects;
+
+namespace FleetTracker.Domain.Entities;
 
 public class Car : EntityBase
 {
-    public string TagUid { get; }
+    public string TagUid { get; } //LEMBRETE: confirmar tipo de tag para criar um ValueObject próprio
     public string Model { get; set; }
-    public string Plate { get; set; }
+    public LicensePlate Plate { get; private set; }
     public List<Path> Paths { get; set; } = new List<Path>();
 
-    public Car(string tagUid, string model, string plate, float averageConsumption)
+    public Car(string tagUid, string model, LicensePlate plate, float averageConsumption)
     {
         TagUid = tagUid;
         Model = model;  

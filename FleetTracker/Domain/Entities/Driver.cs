@@ -1,15 +1,17 @@
-﻿namespace FleetTracker.Domain.Entities;
+﻿using FleetTracker.Domain.ValueObjects;
+
+namespace FleetTracker.Domain.Entities;
 
 public class Driver : EntityBase
 {
     public string name { get; private set; }
-    public string email { get; private set; }
+    public Email email { get; private set; }
     public string password { get; private set; }
-    public string document { get; private set; }
+    public DocumentCNH document { get; private set; }
     public string department { get; private set; }
 
-    public Driver(string name, string email, string password,
-        string document, string department)
+    public Driver(string name, Email email, string password,
+        DocumentCNH document, string department)
     {
         Dictionary<string, string> parameters = new Dictionary<string, string>
         {
