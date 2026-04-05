@@ -1,4 +1,6 @@
-﻿namespace FleetTracker.Domain.ValueObjects
+﻿using System.Text.RegularExpressions;
+
+namespace FleetTracker.Domain.ValueObjects
 {
     public class Email : ValueObject
     {

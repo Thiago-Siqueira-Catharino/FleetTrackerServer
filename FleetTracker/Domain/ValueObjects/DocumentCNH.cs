@@ -4,7 +4,7 @@
     {
         public string number { get; private set; }
 
-        public DocumentCnh(string number)
+        public DocumentCNH(string number)
         {
             if (string.IsNullOrWhiteSpace(number))
                 throw new ArgumentException("A CNH não pode estar vazia.", nameof(number));
@@ -48,12 +48,12 @@
         }
         protected override IEnumerable<object> GetEqualityComponents() //Diz à classe base ValueObject quais propriedades definem igualdade
         {
-            yield return Number;
+            yield return number;
         }
 
         public override string ToString()
         {
-            return Number;
+            return number;
         }
     }
 }

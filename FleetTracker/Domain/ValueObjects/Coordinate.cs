@@ -10,14 +10,14 @@ public class Coordinate : ValueObject
         //REMOVIDO----------------------------------------------------------------
         /*
         
-        Dictionary<string, double> coordinates = new Dictionary<string, double> //Não entendi o por que do Dictionary, mas se precisar adapto utilizando ele
+        Dictionary<string, double> coordinates = new Dictionary<string, double> //Nï¿½o entendi o por que do Dictionary, mas se precisar adapto utilizando ele
         {
             {"latitude", latitude},
             {"longitude", longitude}
         };
         
 
-        foreach (var paramater in coordinates) //double nunca será nulo, ele assume 0 quando não recebe um valor
+        foreach (var paramater in coordinates) //double nunca serï¿½ nulo, ele assume 0 quando nï¿½o recebe um valor
         {
             if (String.IsNullOrEmpty(paramater.Value.ToString()))
                 throw new ArgumentException($"{paramater.Key} must not be empty");
@@ -36,9 +36,9 @@ public class Coordinate : ValueObject
 
     }
 
-    protected override IEnumerable<object> GetEqualityComponents() //Diz à classe base ValueObject quais propriedades definem igualdade
+    protected override IEnumerable<object> GetEqualityComponents() //Diz ï¿½ classe base ValueObject quais propriedades definem igualdade
     {
-        yield return Latitude;
-        yield return Longitude;
+        yield return latitude;
+        yield return longitude;
     }
 }
