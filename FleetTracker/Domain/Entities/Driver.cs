@@ -16,9 +16,9 @@ public class Driver : EntityBase
         Dictionary<string, string> parameters = new Dictionary<string, string>
         {
             {"name", name},
-            {"email", email},
+            {"email", email.emailAddress},
             {"password", password},
-            {"document", document},
+            {"document", document.number},
             {"department", department}
         };
         foreach (var parameter in parameters)
