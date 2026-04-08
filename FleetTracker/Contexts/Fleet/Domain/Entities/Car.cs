@@ -6,10 +6,13 @@ public class Car
     public DateTime CreatedAt { get; private set; }
     public DateTime RemovedAt { get; private set; }
     public bool Active { get; private set; }
-    public string TagUid { get; }
+    public string TagUid { get; private set; }
     public string Model { get; set; }
     public string Plate { get; set; }
 
+    public Car()
+    { }
+    
     public Car(string tagUid, string model, string plate)
     {
         Id = Guid.NewGuid();
@@ -29,5 +32,10 @@ public class Car
     {
         Active = false;
         RemovedAt = DateTime.Now;
+    }
+
+    public void SetTag(string tagUid)
+    {
+        TagUid = tagUid;
     }
 }
