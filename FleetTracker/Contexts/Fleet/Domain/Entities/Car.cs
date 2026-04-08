@@ -1,4 +1,4 @@
-﻿namespace FleetTracker.Contexts.Fleet.Domain;
+﻿namespace FleetTracker.Contexts.Fleet.Domain.Entities;
 
 public class Car
 {
