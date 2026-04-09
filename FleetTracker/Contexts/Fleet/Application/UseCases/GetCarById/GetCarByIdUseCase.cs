@@ -12,8 +12,8 @@ public class GetCarByIdUseCase
         _carRepository = carRepository;
     }
 
-    public Car Run(GetCarByIdDTO id)
+    public async Task<Car> Run(GetCarByIdDTO id)
     {
-        return _carRepository.FindById(id.value);
+        return await _carRepository.FindById(id.value);
     }
 }
