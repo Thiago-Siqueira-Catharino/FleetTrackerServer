@@ -1,28 +1,29 @@
+using FleetTracker.Contexts.Fleet.Application.UseCases.GetCarById;
 using Microsoft.AspNetCore.Mvc;
-using FleetTracker.Application.Services;
-using FleetTracker.Domain.Entities;
-using FleetTracker.Domain.DTOs.Requests;
+using FleetTracker.Contexts.Fleet.UseCases.RegisterNewCar;
 
-namespace FleetTracker.Api.Controllers;
+namespace FleetTracker.Contexts.Fleet.Presentation;
 
 [ApiController]
 [Route("api/[controller]")]
 public class CarsController : ControllerBase
 {
-    private readonly ICarService _carService;
+    private readonly RegisterNewCarUseCase _registerNewCarUseCase;
+    private readonly GetCarByIdUseCase _getCarByIdUseCase;
 
-    public CarsController(ICarService carService)
+    public CarsController(RegisterNewCarUseCase registerNewCarUseCase, GetCarByIdUseCase getCarByIdUseCase)
     {
-        _carService = carService;
+       _getCarByIdUseCase = getCarByIdUseCase;
+       _registerNewCarUseCase = registerNewCarUseCase;
     }
     
     [HttpPost]
-    public async Task<IActionResult> Create([FromBody] CreateCarDTO request)
+    public async Task<IActionResult> Create([FromBody] RegisterCarDTO request)
     {
       
         try 
         {
-            var car = await _carService.RegisterNewCar(request);
+            var car = await _registerNewCarUseCase.Run(request);
             
             if (car == null)
                 return BadRequest("Não foi possível processar o cadastro do veículo.");
@@ -37,9 +38,9 @@ public class CarsController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetById(Guid id)
+    public async Task<IActionResult> GetById(GetCarByIdDTO id)
     {
-        var car = await _carService.GetCarById(id);
+        var car = await _getCarByIdUseCase.Run(id);
 
         if (car == null)
             return NotFound("Veículo não encontrado em Night City.");
