@@ -1,41 +1,42 @@
+using FleetTracker.Contexts.Fleet.Application.UseCases.GetCarById;
+using FleetTracker.Contexts.Fleet.Domain.Repositories;
+using Microsoft.EntityFrameworkCore;
+using FleetTracker.Contexts.Fleet.Infrastructure.Persistance;
+using FleetTracker.Contexts.Fleet.Infrastructure.Repositories;
+using FleetTracker.Contexts.Fleet.UseCases.RegisterNewCar; // Adjust to your actual namespace
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+// 1. Register the DbContext (The missing piece!)
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
+                       ?? "server=localhost;database=fleet_db;user=root;password=";
+
+builder.Services.AddDbContext<FleetDbContext>(options =>
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+// 2. Register your Repositories and UseCases (Dependency Injection)
+builder.Services.AddScoped<RegisterNewCarUseCase>();
+builder.Services.AddScoped<GetCarByIdUseCase>();
+builder.Services.AddScoped<ICarRepository, CarRepository>();
+builder.Services.AddScoped<RegisterNewCarUseCase>();
+
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-    {
-        var forecast = Enumerable.Range(1, 5).Select(index =>
-                new WeatherForecast
-                (
-                    DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                    Random.Shared.Next(-20, 55),
-                    summaries[Random.Shared.Next(summaries.Length)]
-                ))
-            .ToArray();
-        return forecast;
-    })
-    .WithName("GetWeatherForecast");
+app.MapControllers();
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
