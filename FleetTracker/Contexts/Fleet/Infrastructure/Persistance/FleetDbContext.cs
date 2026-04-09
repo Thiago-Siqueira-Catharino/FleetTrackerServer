@@ -7,7 +7,7 @@ public class FleetDbContext : DbContext
 {
     public DbSet<Car> Cars { get; set; }
 
-    public FleetDbContext(DbContextOptions options) : base(options)
+    public FleetDbContext(DbContextOptions<FleetDbContext> options) : base(options)
     {
     }
 
