@@ -17,7 +17,7 @@ public class CarsController : ControllerBase
        _registerNewCarUseCase = registerNewCarUseCase;
     }
     
-    [HttpPost]
+    [HttpPost("Cadastrar")]
     public async Task<IActionResult> Create([FromBody] RegisterCarDTO request)
     {
       
@@ -37,10 +37,11 @@ public class CarsController : ControllerBase
         }
     }
 
-    [HttpGet("{id}")]
-    public async Task<IActionResult> GetById(GetCarByIdDTO id)
+    [HttpGet("Buscar/{id}")]
+    public async Task<IActionResult> GetById(Guid id)
     {
-        var car = await _getCarByIdUseCase.Run(id);
+        var dto = new GetCarByIdDTO(id);
+        var car = await _getCarByIdUseCase.Run(dto);
 
         if (car == null)
             return NotFound("Veículo não encontrado em Night City.");
