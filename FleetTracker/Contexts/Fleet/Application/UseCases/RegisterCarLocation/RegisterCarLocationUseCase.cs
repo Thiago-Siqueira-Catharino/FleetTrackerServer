@@ -8,7 +8,7 @@ namespace FleetTracker.Contexts.Fleet.Application.UseCases.RegisterCarLocation
         private readonly ILocationRepository _locationRepository; //Precisa criar ainda
         private readonly ICarRepository _carRepository;
 
-        public RecordCarLocationUseCase(ILocationRepository locationRepository, ICarRepository carRepository)
+        public RegisterCarLocationUseCase(ILocationRepository locationRepository, ICarRepository carRepository)
         {
             _locationRepository = locationRepository;
             _carRepository = carRepository;
