@@ -1,6 +1,7 @@
 using FleetTracker.Contexts.Fleet.Domain.Entities;
 using FleetTracker.Contexts.Fleet.Domain.Repositories;
 using FleetTracker.Contexts.Fleet.Infrastructure.Persistance;
+using FleetTracker.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 
 namespace FleetTracker.Contexts.Fleet.Infrastructure.Repositories;
@@ -24,7 +25,7 @@ public class CarRepository : ICarRepository
 
     public async Task<Car> FindByPlate(string plate)
     {
-        Car car = await _database.Cars.FirstOrDefaultAsync(c => c.Plate == plate);
+        Car car = await _database.Cars.FirstOrDefaultAsync(c => c.Plate == new LicensePlate(plate));
         if (car == null)
             throw new KeyNotFoundException($"Car with plate {plate} does not exist");
         
