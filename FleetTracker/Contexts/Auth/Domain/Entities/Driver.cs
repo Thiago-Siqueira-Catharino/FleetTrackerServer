@@ -4,5 +4,5 @@ namespace FleetTracker.Contexts.Auth.Domain.Entities;
 
 public class Driver :  User
 {
-    public DocumentCnh DocumentCnh { get; set; }
+    public DocumentCnh? DocumentCnh { get; set; }
 }
