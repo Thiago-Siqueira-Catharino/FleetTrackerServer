@@ -27,8 +27,6 @@
       <Folder Include="Contexts\Administration\Infrastructure\Persistance\Entities\" />
       <Folder Include="Contexts\Administration\Infrastructure\Repositories\" />
       <Folder Include="Contexts\Administration\Presentation\" />
-      <Folder Include="Contexts\Auth\Application\UseCases\LoginUseCase\" />
-      <Folder Include="Contexts\Auth\Domain\ValueObjects\" />
       <Folder Include="Contexts\Auth\Infrastructure\Persistance\Entities\" />
       <Folder Include="Contexts\Fleet\Infrastructure\Persistance\Entities\" />
       <Folder Include="Contexts\Telemetry\Application\UseCases\" />
