@@ -1,4 +1,6 @@
-﻿namespace FleetTracker.Contexts.Fleet.Domain.Entities;
+using FleetTracker.Domain.ValueObjects;
+
+namespace FleetTracker.Contexts.Fleet.Domain.Entities;
 
 public class Car
 {
@@ -8,18 +10,17 @@ public class Car
     public bool Active { get; private set; }
     public string TagUid { get; private set; }
     public string Model { get; set; }
-    public string Plate { get; set; }
+    public LicensePlate Plate { get; private set; }
 
     public Car()
     { }
     
-    public Car(string tagUid, string model, string plate)
+    public Car(string model, string plate)
     {
         Id = Guid.NewGuid();
         CreatedAt = DateTime.Now;
-        TagUid = tagUid;
         Model = model;  
-        Plate = plate;
+        Plate = new LicensePlate(plate);;
         Active = true;
     }
 
@@ -37,5 +38,6 @@ public class Car
     public void SetTag(string tagUid)
     {
         TagUid = tagUid;
+        
     }
 }
