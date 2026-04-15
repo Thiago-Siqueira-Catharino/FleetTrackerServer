@@ -19,14 +19,13 @@ builder.Services.AddDbContext<FleetDbContext>(options =>
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 // 2. Register your Repositories and UseCases (Dependency Injection)
 builder.Services.AddScoped<RegisterNewCarUseCase>();
 builder.Services.AddScoped<GetCarByIdUseCase>();
 builder.Services.AddScoped<ICarRepository, CarRepository>();
 builder.Services.AddScoped<RegisterNewCarUseCase>();
-
-builder.Services.AddOpenApi();
 
 builder.Services.AddAuthentication(options =>
 {
@@ -50,7 +49,8 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
