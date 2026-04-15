@@ -1,4 +1,4 @@
-﻿using FleetTracker.Contexts.Fleet.Domain.Entities;
+﻿using FleetTracker.Domain.Entities;
 
 namespace FleetTracker.Contexts.Fleet.Domain.Entities;
 
