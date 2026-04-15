@@ -24,13 +24,10 @@ builder.Services.AddScoped<GetCarByIdUseCase>();
 builder.Services.AddScoped<ICarRepository, CarRepository>();
 builder.Services.AddScoped<RegisterNewCarUseCase>();
 
-builder.Services.AddOpenApi();
-
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
     app.UseSwagger();
     app.UseSwaggerUI();
 }
