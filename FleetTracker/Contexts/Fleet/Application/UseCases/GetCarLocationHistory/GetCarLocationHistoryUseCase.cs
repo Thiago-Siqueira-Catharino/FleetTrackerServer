@@ -1,4 +1,4 @@
-﻿using FleetTracker.Domain.Entities;
+﻿using FleetTracker.Contexts.Fleet.Domain.Repositories;
 
 namespace FleetTracker.Contexts.Fleet.Application.UseCases.GetCarLocationHistory
 {
