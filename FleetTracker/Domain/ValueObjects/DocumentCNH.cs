@@ -1,4 +1,6 @@
-﻿namespace FleetTracker.Domain.ValueObjects
+﻿using FleetTracker.Contexts.Fleet.Domain.ValueObjects;
+
+namespace FleetTracker.Domain.ValueObjects
 {
     public class DocumentCNH : ValueObject
     {
