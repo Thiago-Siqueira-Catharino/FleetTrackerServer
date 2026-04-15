@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.0" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.0" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0" />
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
@@ -16,7 +17,8 @@
         </PackageReference>
         <PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" Version="8.17.0" />
         <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="9.0.0" />
-        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.0-rc.2.25502.107"/>
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.0-rc.2.25502.107" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.0" />
         <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.17.0" />
     </ItemGroup>
 
@@ -50,7 +52,6 @@
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="9.0.0" />
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.4" />
     </ItemGroup>
 
 </Project>
