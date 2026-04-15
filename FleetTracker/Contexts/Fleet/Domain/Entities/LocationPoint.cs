@@ -1,6 +1,7 @@
 using FleetTracker.Contexts.Fleet.Domain.ValueObjects;
+using FleetTracker.Domain.Entities;
 
-namespace FleetTracker.Domain.Entities;
+namespace FleetTracker.Contexts.Fleet.Domain.Entities;
 
 public class LocationPoint :  EntityBase
 {
