@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using FleetTracker.Contexts.Fleet.Domain.ValueObjects;
+using System.Text.RegularExpressions;
 
 namespace FleetTracker.Domain.ValueObjects
 {

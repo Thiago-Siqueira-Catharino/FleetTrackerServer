@@ -1,4 +1,6 @@
-﻿namespace FleetTracker.Domain.Entities;
+﻿using FleetTracker.Domain.Entities;
+
+namespace FleetTracker.Contexts.Fleet.Domain.Entities;
 
 public class Path : EntityBase
 {

@@ -16,10 +16,12 @@ public class RegisterNewCarUseCase
     {
         if (car == null)
             throw  new ArgumentException( "Informações inválidas");
-        
-        Car carToRegister = new Car(car.tagUid, car.model, car.plate);
+
+        Car carToRegister = new Car(car.model, car.plate);
         if (carToRegister == null)
             throw new ArgumentException("Algo deu errado");
+        
+        carToRegister.SetTag(car.tagUid);
         
         _carRepository.Create(carToRegister);
         return carToRegister;
