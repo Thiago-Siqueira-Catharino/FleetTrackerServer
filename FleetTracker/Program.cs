@@ -1,9 +1,12 @@
+using System.Text;
 using FleetTracker.Contexts.Fleet.Application.UseCases.GetCarById;
 using FleetTracker.Contexts.Fleet.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
 using FleetTracker.Contexts.Fleet.Infrastructure.Persistance;
 using FleetTracker.Contexts.Fleet.Infrastructure.Repositories;
-using FleetTracker.Contexts.Fleet.UseCases.RegisterNewCar; // Adjust to your actual namespace
+using FleetTracker.Contexts.Fleet.UseCases.RegisterNewCar;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +27,24 @@ builder.Services.AddScoped<GetCarByIdUseCase>();
 builder.Services.AddScoped<ICarRepository, CarRepository>();
 builder.Services.AddScoped<RegisterNewCarUseCase>();
 
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+    };
+});
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
