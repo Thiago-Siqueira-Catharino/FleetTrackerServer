@@ -32,6 +32,12 @@ namespace FleetTracker.Contexts.Fleet.Application.UseCases.AssignCar
                     throw new Exception("Veículo inexistente");
                 }
 
+                if (car.Active == true)
+                {
+                    throw new Exception("Veículo já está sendo usado");
+                }
+
+                car.Active = true;
                 car.Use(assignCarDTO.CarId, assignCarDTO.DriverId); //criar classe para trajeto?
 
                 _carRepository.Update(car);
