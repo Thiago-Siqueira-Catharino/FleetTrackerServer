@@ -23,5 +23,6 @@ public class AuthDbContext : IdentityDbContext<User>
                 v => new DocumentCnh(v)
             );
         
+        base.OnModelCreating(modelBuilder);
     }
 }
