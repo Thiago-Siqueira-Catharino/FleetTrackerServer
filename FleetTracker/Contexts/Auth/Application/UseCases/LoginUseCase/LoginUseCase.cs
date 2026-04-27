@@ -24,7 +24,7 @@ public class LoginUseCase(
             new Claim(ClaimTypes.Role, user.GetType().Name),
         };
         
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtKey"]));
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
         var token = new JwtSecurityToken(
@@ -40,19 +40,19 @@ public class LoginUseCase(
     
     public async Task<string> Run(LoginDto loginDto)
     {
-        var result = await signInManager.PasswordSignInAsync(
-            loginDto.email, 
-            loginDto.password, 
-            false, 
-            true
-            );
+        var user = await userManager.FindByEmailAsync(loginDto.email);
 
-        if (!result.Succeeded)
+        if (user ==  null)
         {
             throw new ArgumentException("Invalid login attempt");
         }
         
-        var user = await userManager.FindByEmailAsync(loginDto.email);
+        var validatePassword = await userManager.CheckPasswordAsync(user, loginDto.password);
+        if (validatePassword == false)
+        {
+            throw new ArgumentException("Invalid login attempt");
+        }
+        
         return GenerateJwtToken(user);
     }
 }
