@@ -11,7 +11,8 @@ public class NewDriverUseCase(UserManager<User> _userManager)
     {
         Driver driver = new Driver
         {
-            UserName = newDriver.Name, 
+            UserName = newDriver.Email,
+            Name = newDriver.Name,
             Email = newDriver.Email, 
             DocumentCnh =  new DocumentCnh(newDriver.DocumentCnh)
         };

@@ -1,4 +1,5 @@
 using FleetTracker.Contexts.Auth.Domain.Entities;
+using FleetTracker.Contexts.Auth.Domain.ValueObjects;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,5 +12,17 @@ public class AuthDbContext : IdentityDbContext<User>
     public DbSet<FieldAgent> FieldAgents { get; set; }
     public AuthDbContext(DbContextOptions<AuthDbContext> options) : base(options)
     {
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Driver>()
+            .Property(d => d.DocumentCnh)
+            .HasConversion(
+                v => v.number,
+                v => new DocumentCnh(v)
+            );
+        
+        base.OnModelCreating(modelBuilder);
     }
 }

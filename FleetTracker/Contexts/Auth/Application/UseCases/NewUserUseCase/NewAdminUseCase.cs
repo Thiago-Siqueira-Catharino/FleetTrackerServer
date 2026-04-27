@@ -10,7 +10,8 @@ public class NewAdminUseCase(UserManager<User> _userManager)
     {
         Admin admin = new Admin
         {
-            UserName = newUser.Name,
+            UserName = newUser.Email,
+            Name =  newUser.Name,
             Email = newUser.Email,
         };
         
