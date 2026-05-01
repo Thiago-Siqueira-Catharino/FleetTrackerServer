@@ -10,7 +10,8 @@ public class NewFieldAdgentUseCase(UserManager<User> _userManager)
     {
         FieldAgent fieldAgent = new FieldAgent
         {
-            UserName = newUser.Name,
+            UserName = newUser.Email,
+            Name = newUser.Name,
             Email = newUser.Email,
         };
         
