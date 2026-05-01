@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Luan\\Desktop\\FleetTracker\\FleetTrackerServer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{09965869-9E92-D3A1-4A68-B98698B3B2E3}|FleetTracker\\FleetTracker.csproj|c:\\users\\luan\\desktop\\fleettracker\\fleettrackerserver\\fleettracker\\contexts\\fleet\\application\\usecases\\getcarlocationhistory\\getcarlocationhistoryusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09965869-9E92-D3A1-4A68-B98698B3B2E3}|FleetTracker\\FleetTracker.csproj|solutionrelative:fleettracker\\contexts\\fleet\\application\\usecases\\getcarlocationhistory\\getcarlocationhistoryusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{09965869-9E92-D3A1-4A68-B98698B3B2E3}|FleetTracker\\FleetTracker.csproj|c:\\users\\luan\\desktop\\fleettracker\\fleettrackerserver\\fleettracker\\contexts\\fleet\\application\\usecases\\assigncar\\assigncarusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09965869-9E92-D3A1-4A68-B98698B3B2E3}|FleetTracker\\FleetTracker.csproj|solutionrelative:fleettracker\\contexts\\fleet\\application\\usecases\\assigncar\\assigncarusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09965869-9E92-D3A1-4A68-B98698B3B2E3}|FleetTracker\\FleetTracker.csproj|c:\\users\\luan\\desktop\\fleettracker\\fleettrackerserver\\fleettracker\\contexts\\fleet\\application\\usecases\\getcarlocationhistory\\getcarlocationhistorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09965869-9E92-D3A1-4A68-B98698B3B2E3}|FleetTracker\\FleetTracker.csproj|solutionrelative:fleettracker\\contexts\\fleet\\application\\usecases\\getcarlocationhistory\\getcarlocationhistorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{09965869-9E92-D3A1-4A68-B98698B3B2E3}|FleetTracker\\FleetTracker.csproj|c:\\users\\luan\\desktop\\fleettracker\\fleettrackerserver\\fleettracker\\contexts\\fleet\\application\\usecases\\releasecar\\releasecarusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09965869-9E92-D3A1-4A68-B98698B3B2E3}|FleetTracker\\FleetTracker.csproj|solutionrelative:fleettracker\\contexts\\fleet\\application\\usecases\\releasecar\\releasecarusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09965869-9E92-D3A1-4A68-B98698B3B2E3}|FleetTracker\\FleetTracker.csproj|c:\\users\\luan\\desktop\\fleettracker\\fleettrackerserver\\fleettracker\\contexts\\fleet\\application\\usecases\\registercarlocation\\registercarlocationusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09965869-9E92-D3A1-4A68-B98698B3B2E3}|FleetTracker\\FleetTracker.csproj|solutionrelative:fleettracker\\contexts\\fleet\\application\\usecases\\registercarlocation\\registercarlocationusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{09965869-9E92-D3A1-4A68-B98698B3B2E3}|FleetTracker\\FleetTracker.csproj|c:\\users\\luan\\desktop\\fleettracker\\fleettrackerserver\\fleettracker\\contexts\\fleet\\domain\\entities\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09965869-9E92-D3A1-4A68-B98698B3B2E3}|FleetTracker\\FleetTracker.csproj|solutionrelative:fleettracker\\contexts\\fleet\\domain\\entities\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09965869-9E92-D3A1-4A68-B98698B3B2E3}|FleetTracker\\FleetTracker.csproj|c:\\users\\luan\\desktop\\fleettracker\\fleettrackerserver\\fleettracker\\contexts\\fleet\\application\\usecases\\registercarlocation\\registercarlocationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09965869-9E92-D3A1-4A68-B98698B3B2E3}|FleetTracker\\FleetTracker.csproj|solutionrelative:fleettracker\\contexts\\fleet\\application\\usecases\\registercarlocation\\registercarlocationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{09965869-9E92-D3A1-4A68-B98698B3B2E3}|FleetTracker\\FleetTracker.csproj|c:\\users\\luan\\desktop\\fleettracker\\fleettrackerserver\\fleettracker\\contexts\\fleet\\application\\usecases\\releasecar\\releasecardto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09965869-9E92-D3A1-4A68-B98698B3B2E3}|FleetTracker\\FleetTracker.csproj|solutionrelative:fleettracker\\contexts\\fleet\\application\\usecases\\releasecar\\releasecardto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,54 +34,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GetCarLocationHistoryUseCase.cs",
-              "DocumentMoniker": "C:\\Users\\Luan\\Desktop\\FleetTracker\\FleetTrackerServer\\FleetTracker\\Contexts\\Fleet\\Application\\UseCases\\GetCarLocationHistory\\GetCarLocationHistoryUseCase.cs",
-              "RelativeDocumentMoniker": "FleetTracker\\Contexts\\Fleet\\Application\\UseCases\\GetCarLocationHistory\\GetCarLocationHistoryUseCase.cs",
-              "ToolTip": "C:\\Users\\Luan\\Desktop\\FleetTracker\\FleetTrackerServer\\FleetTracker\\Contexts\\Fleet\\Application\\UseCases\\GetCarLocationHistory\\GetCarLocationHistoryUseCase.cs",
-              "RelativeToolTip": "FleetTracker\\Contexts\\Fleet\\Application\\UseCases\\GetCarLocationHistory\\GetCarLocationHistoryUseCase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABPAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Car.cs",
+              "DocumentMoniker": "C:\\Users\\Luan\\Desktop\\FleetTracker\\FleetTrackerServer\\FleetTracker\\Contexts\\Fleet\\Domain\\Entities\\Car.cs",
+              "RelativeDocumentMoniker": "FleetTracker\\Contexts\\Fleet\\Domain\\Entities\\Car.cs",
+              "ToolTip": "C:\\Users\\Luan\\Desktop\\FleetTracker\\FleetTrackerServer\\FleetTracker\\Contexts\\Fleet\\Domain\\Entities\\Car.cs",
+              "RelativeToolTip": "FleetTracker\\Contexts\\Fleet\\Domain\\Entities\\Car.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-14T01:33:46.697Z",
+              "WhenOpened": "2026-04-26T21:21:02.219Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "GetCarLocationHistoryDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Luan\\Desktop\\FleetTracker\\FleetTrackerServer\\FleetTracker\\Contexts\\Fleet\\Application\\UseCases\\GetCarLocationHistory\\GetCarLocationHistoryDTO.cs",
-              "RelativeDocumentMoniker": "FleetTracker\\Contexts\\Fleet\\Application\\UseCases\\GetCarLocationHistory\\GetCarLocationHistoryDTO.cs",
-              "ToolTip": "C:\\Users\\Luan\\Desktop\\FleetTracker\\FleetTrackerServer\\FleetTracker\\Contexts\\Fleet\\Application\\UseCases\\GetCarLocationHistory\\GetCarLocationHistoryDTO.cs",
-              "RelativeToolTip": "FleetTracker\\Contexts\\Fleet\\Application\\UseCases\\GetCarLocationHistory\\GetCarLocationHistoryDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAvAAAAAAAAAA==",
+              "Title": "ReleaseCarUseCase.cs",
+              "DocumentMoniker": "C:\\Users\\Luan\\Desktop\\FleetTracker\\FleetTrackerServer\\FleetTracker\\Contexts\\Fleet\\Application\\UseCases\\ReleaseCar\\ReleaseCarUseCase.cs",
+              "RelativeDocumentMoniker": "FleetTracker\\Contexts\\Fleet\\Application\\UseCases\\ReleaseCar\\ReleaseCarUseCase.cs",
+              "ToolTip": "C:\\Users\\Luan\\Desktop\\FleetTracker\\FleetTrackerServer\\FleetTracker\\Contexts\\Fleet\\Application\\UseCases\\ReleaseCar\\ReleaseCarUseCase.cs",
+              "RelativeToolTip": "FleetTracker\\Contexts\\Fleet\\Application\\UseCases\\ReleaseCar\\ReleaseCarUseCase.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-14T01:32:40.553Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RegisterCarLocationUseCase.cs",
-              "DocumentMoniker": "C:\\Users\\Luan\\Desktop\\FleetTracker\\FleetTrackerServer\\FleetTracker\\Contexts\\Fleet\\Application\\UseCases\\RegisterCarLocation\\RegisterCarLocationUseCase.cs",
-              "RelativeDocumentMoniker": "FleetTracker\\Contexts\\Fleet\\Application\\UseCases\\RegisterCarLocation\\RegisterCarLocationUseCase.cs",
-              "ToolTip": "C:\\Users\\Luan\\Desktop\\FleetTracker\\FleetTrackerServer\\FleetTracker\\Contexts\\Fleet\\Application\\UseCases\\RegisterCarLocation\\RegisterCarLocationUseCase.cs",
-              "RelativeToolTip": "FleetTracker\\Contexts\\Fleet\\Application\\UseCases\\RegisterCarLocation\\RegisterCarLocationUseCase.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwCEAAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-14T01:23:38.443Z",
+              "WhenOpened": "2026-04-26T21:16:47.611Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "RegisterCarLocationDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Luan\\Desktop\\FleetTracker\\FleetTrackerServer\\FleetTracker\\Contexts\\Fleet\\Application\\UseCases\\RegisterCarLocation\\RegisterCarLocationDTO.cs",
-              "RelativeDocumentMoniker": "FleetTracker\\Contexts\\Fleet\\Application\\UseCases\\RegisterCarLocation\\RegisterCarLocationDTO.cs",
-              "ToolTip": "C:\\Users\\Luan\\Desktop\\FleetTracker\\FleetTrackerServer\\FleetTracker\\Contexts\\Fleet\\Application\\UseCases\\RegisterCarLocation\\RegisterCarLocationDTO.cs",
-              "RelativeToolTip": "FleetTracker\\Contexts\\Fleet\\Application\\UseCases\\RegisterCarLocation\\RegisterCarLocationDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAtAAAAAAAAAA==",
+              "Title": "ReleaseCarDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Luan\\Desktop\\FleetTracker\\FleetTrackerServer\\FleetTracker\\Contexts\\Fleet\\Application\\UseCases\\ReleaseCar\\ReleaseCarDTO.cs",
+              "RelativeDocumentMoniker": "FleetTracker\\Contexts\\Fleet\\Application\\UseCases\\ReleaseCar\\ReleaseCarDTO.cs",
+              "ToolTip": "C:\\Users\\Luan\\Desktop\\FleetTracker\\FleetTrackerServer\\FleetTracker\\Contexts\\Fleet\\Application\\UseCases\\ReleaseCar\\ReleaseCarDTO.cs",
+              "RelativeToolTip": "FleetTracker\\Contexts\\Fleet\\Application\\UseCases\\ReleaseCar\\ReleaseCarDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-14T01:19:18.958Z",
+              "WhenOpened": "2026-04-26T21:16:16.544Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AssignCarUseCase.cs",
+              "DocumentMoniker": "C:\\Users\\Luan\\Desktop\\FleetTracker\\FleetTrackerServer\\FleetTracker\\Contexts\\Fleet\\Application\\UseCases\\AssignCar\\AssignCarUseCase.cs",
+              "RelativeDocumentMoniker": "FleetTracker\\Contexts\\Fleet\\Application\\UseCases\\AssignCar\\AssignCarUseCase.cs",
+              "ToolTip": "C:\\Users\\Luan\\Desktop\\FleetTracker\\FleetTrackerServer\\FleetTracker\\Contexts\\Fleet\\Application\\UseCases\\AssignCar\\AssignCarUseCase.cs",
+              "RelativeToolTip": "FleetTracker\\Contexts\\Fleet\\Application\\UseCases\\AssignCar\\AssignCarUseCase.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-21T19:43:21.117Z",
               "EditorCaption": ""
             }
           ]
