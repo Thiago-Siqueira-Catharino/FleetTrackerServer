@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace FleetTracker.Domain.ValueObjects
+namespace FleetTracker.Contexts.Fleet.Domain.ValueObjects
 {
     public class LicensePlate : ValueObject
     {

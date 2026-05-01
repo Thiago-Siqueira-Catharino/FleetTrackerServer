@@ -1,4 +1,4 @@
-namespace FleetTracker.Domain.ValueObjects;
+namespace FleetTracker.Contexts.Fleet.Domain.ValueObjects;
 
 public class Coordinate : ValueObject
 {

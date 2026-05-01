@@ -1,12 +1,13 @@
-using FleetTracker.Domain.ValueObjects;
+using FleetTracker.Contexts.Fleet.Domain.ValueObjects;
+using FleetTracker.Domain.Entities;
 
-namespace FleetTracker.Domain.Entities;
+namespace FleetTracker.Contexts.Fleet.Domain.Entities;
 
 public class LocationPoint :  EntityBase
 {
     public DateTime timeStamp { get; private set; }
     public Coordinate coordinate  { get; private set; }
-    public double fuelLevel { get; private set; } //Talvez criar um Value Object próprio? Não sei ainda
+    public double fuelLevel { get; private set; } //Talvez criar um Value Object prï¿½prio? Nï¿½o sei ainda
 
     public LocationPoint(DateTime timeStamp, Coordinate coordinate, double fuelLevel)
     {
