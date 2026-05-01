@@ -1,8 +1,8 @@
-﻿using FleetTracker.Contexts.Fleet.Domain.Entities;
-using FleetTracker.Contexts.Fleet.Domain.ValueObjects;
-using FleetTracker.Contexts.Fleet.Domain.Repositories;
+﻿using FleetTracker.Contexts.Telemetry.Domain.Entities;
+using FleetTracker.Contexts.Telemetry.Domain.ValueObjects;
+using FleetTracker.Contexts.Telemetry.Domain.Repositories;
 
-namespace FleetTracker.Contexts.Fleet.Application.UseCases.RegisterCarLocation
+namespace FleetTracker.Contexts.Telemetry.Application.UseCases.RegisterCarLocation
 {
     public class RegisterCarLocationUseCase
     {

@@ -1,7 +1,7 @@
-using FleetTracker.Contexts.Fleet.Application.UseCases.RegisterCarLocation;
-using FleetTracker.Contexts.Fleet.Domain.Entities;
+using FleetTracker.Contexts.Telemetry.Application.UseCases.RegisterCarLocation;
+using FleetTracker.Contexts.Telemetry.Domain.Entities;
 
-namespace FleetTracker.Contexts.Fleet.Domain.Repositories;
+namespace FleetTracker.Contexts.Telemetry.Domain.Repositories;
 
 public interface ILocationRepository
 {

@@ -36,6 +36,8 @@
       <Folder Include="Contexts\Fleet\Infrastructure\Persistance\Entities\" />
       <Folder Include="Contexts\Telemetry\Application\UseCases\" />
       <Folder Include="Contexts\Telemetry\Domain\Entities\" />
+      <Folder Include="Contexts\Telemetry\Domain\Repositories\" />
+      <Folder Include="Contexts\Telemetry\Domain\ValueObjects\" />
       <Folder Include="Contexts\Telemetry\Infrastructure\Persistance\Entities\" />
       <Folder Include="Contexts\Telemetry\Infrastructure\Repositories\" />
       <Folder Include="Contexts\Telemetry\Presentation\" />
