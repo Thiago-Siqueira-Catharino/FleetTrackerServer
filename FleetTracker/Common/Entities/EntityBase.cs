@@ -1,4 +1,4 @@
-﻿namespace FleetTracker.Domain.Entities;
+﻿namespace FleetTracker.Common.Entities;
 
 public class EntityBase
 {
