@@ -1,7 +1,7 @@
 using FleetTracker.Contexts.Fleet.Domain.Entities;
 using FleetTracker.Contexts.Fleet.Domain.Repositories;
 using FleetTracker.Contexts.Fleet.Infrastructure.Persistance;
-using FleetTracker.Domain.ValueObjects;
+using FleetTracker.Contexts.Fleet.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 
 namespace FleetTracker.Contexts.Fleet.Infrastructure.Repositories;
