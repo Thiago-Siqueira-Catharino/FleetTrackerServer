@@ -2,16 +2,16 @@ namespace FleetTracker.Contexts.Fleet.UseCases.RegisterNewCar;
 
 public class RegisterCarDTO
 {
-    public Guid tagUid { get; set; }
+    public string tagUid { get; set; }
     public string model { get; set; }
     public string plate { get; set; }
 
-    public RegisterCarDTO(Guid tagUid, string model, string plate)
+    public RegisterCarDTO(string tagUid, string model, string plate)
     {
         //Verification of every single parameter
         Dictionary<String, String> parameters = new Dictionary<String, String>
         {
-            { "taguid", tagUid.ToString() },
+            { "taguid", tagUid },
             { "model", model },
             { "plate", plate }
         };

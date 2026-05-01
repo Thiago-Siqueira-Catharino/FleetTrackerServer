@@ -1,5 +1,27 @@
-bin/
-obj/
 /packages/
 riderModule.iml
 /_ReSharper.Caches/
+
+## .NET / Visual Studio
+[Bb]in/
+[Oo]bj/
+*.user
+*.userosscache
+*.sln.docstates
+
+## JetBrains / Rider
+.idea/
+*.iml
+_ReSharper.Caches/
+
+## Microsoft / VS code
+.vs/
+
+## Databases (Keep the migrations, ignore the local DBs)
+*.db
+*.db-shm
+*.db-wal
+
+## OS specific
+.DS_Store
+thumbs.db
