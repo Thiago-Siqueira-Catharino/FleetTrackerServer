@@ -1,4 +1,4 @@
-﻿namespace FleetTracker.Contexts.Fleet.Application.UseCases.RegisterCarLocation
+﻿namespace FleetTracker.Contexts.Telemetry.Application.UseCases.RegisterCarLocation
 {
     public class RegisterCarLocationDTO
     {
