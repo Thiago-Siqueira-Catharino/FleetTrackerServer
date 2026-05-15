@@ -6,34 +6,43 @@ namespace FleetTracker.Contexts.Telemetry.Application.UseCases.RegisterCarLocati
 {
     public class RegisterCarLocationUseCase
     {
-        private readonly ILocationRepository _locationRepository; //Precisa criar ainda
-        private readonly ICarRepository _carRepository;
-
-        public RegisterCarLocationUseCase(ILocationRepository locationRepository, ICarRepository carRepository)
+        private readonly ILocationRepository _locationRepository;
+        private readonly IPathRepository _pathRepository;
+        //private readonly ICarRepository _carRepository;
+        
+        public RegisterCarLocationUseCase(
+            ILocationRepository locationRepository, 
+            ICarRepository carRepository,
+            IPathRepository pathRepository
+            )
         {
             _locationRepository = locationRepository;
-            _carRepository = carRepository;
+            _pathRepository = pathRepository;
+            //_carRepository = carRepository;
         }
 
-        public async Task ExecuteAsync(RegisterCarLocationDTO request)
+        public async Task RunAsync(RegisterCarLocationDTO request)
         {
-            var car = await _carRepository.FindById(request.CarId);
-            if (car == null)
-            {
-                throw new Exception("Carro não encontrado.");
-            }
-
             var coordinate = new Coordinate(request.Latitude, request.Longitude);
 
             var locationPoint = new LocationPoint(
-                timeStamp:request.Timestamp,
+                timeStamp: request.Timestamp,
                 coordinate: coordinate,
                 fuelLevel: request.FuelLevel
                 //driverId: request.DriverId,
                 //carId: request.CarId
             );
 
+            Domain.Entities.Path path = await _pathRepository.FindByIdAsync(request.PathId);
+
+            if (path == null)
+                throw new ArgumentException("Esse caminho ainda não existe");
+            
+            locationPoint.SetPath(path, path.Id);
+            path.AddLocationPoint(locationPoint);
+            
             await _locationRepository.AddAsync(locationPoint);
+            await _pathRepository.UpdateAsync(path);
         }
     }
 }
