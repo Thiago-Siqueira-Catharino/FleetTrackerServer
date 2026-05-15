@@ -33,11 +33,9 @@
       <Folder Include="Contexts\Administration\Presentation\" />
       <Folder Include="Contexts\Auth\Infrastructure\Persistance\Entities\" />
       <Folder Include="Contexts\Fleet\Infrastructure\Persistance\Entities\" />
-      <Folder Include="Contexts\Telemetry\Application\UseCases\" />
       <Folder Include="Contexts\Telemetry\Domain\Entities\" />
       <Folder Include="Contexts\Telemetry\Domain\ValueObjects\" />
       <Folder Include="Contexts\Telemetry\Infrastructure\Persistance\Entities\" />
-      <Folder Include="Contexts\Telemetry\Infrastructure\Repositories\" />
       <Folder Include="Contexts\Telemetry\Presentation\" />
       <Folder Include="Common\ValueObjects\" />
     </ItemGroup>
