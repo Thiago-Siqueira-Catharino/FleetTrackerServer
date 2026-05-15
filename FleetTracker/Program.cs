@@ -1,19 +1,27 @@
 using System.Text;
+
 using FleetTracker.Contexts.Auth.Application.UseCases.LoginUseCase;
 using FleetTracker.Contexts.Auth.Application.UseCases.NewUserUseCase;
 using FleetTracker.Contexts.Auth.Domain.Entities;
 using FleetTracker.Contexts.Auth.Domain.Repositories;
 using FleetTracker.Contexts.Auth.Infrastructure.Persistance;
 using FleetTracker.Contexts.Auth.Infrastructure.Repositories;
+
 using FleetTracker.Contexts.Fleet.Application.UseCases.GetCarById;
-using FleetTracker.Contexts.Fleet.Domain.Repositories;
-using Microsoft.EntityFrameworkCore;
 using FleetTracker.Contexts.Fleet.Infrastructure.Persistance;
 using FleetTracker.Contexts.Fleet.Infrastructure.Repositories;
 using FleetTracker.Contexts.Fleet.UseCases.RegisterNewCar;
+
+using FleetTracker.Contexts.Telemetry.Application.UseCases.CreatePathUseCase;
+using FleetTracker.Contexts.Telemetry.Application.UseCases.RegisterCarLocation;
+using FleetTracker.Contexts.Telemetry.Domain.Repositories;
+using FleetTracker.Contexts.Telemetry.Infrastructure.Repositories;
+
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using ICarRepository = FleetTracker.Contexts.Fleet.Domain.Repositories.ICarRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -50,6 +58,13 @@ builder.Services.AddScoped<RegisterNewCarUseCase>();
 builder.Services.AddScoped<GetCarByIdUseCase>();
 builder.Services.AddScoped<ICarRepository, CarRepository>();
 builder.Services.AddScoped<RegisterNewCarUseCase>();
+
+//Telemetry DI
+builder.Services.AddScoped<CreatePathUseCase>();
+builder.Services.AddScoped<RegisterCarLocationUseCase>();
+builder.Services.AddScoped<IPathRepository, PathRepository>();
+builder.Services.AddScoped<ILocationRepository, LocationPointRepository>();
+
 
 builder.Services.AddAuthentication(options =>
 {
