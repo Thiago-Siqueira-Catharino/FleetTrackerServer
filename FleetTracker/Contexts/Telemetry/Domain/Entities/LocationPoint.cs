@@ -1,26 +1,40 @@
-using FleetTracker.Contexts.Fleet.Domain.ValueObjects;
+using FleetTracker.Contexts.Telemetry.Domain.ValueObjects;
 using FleetTracker.Common.Entities;
 
-namespace FleetTracker.Contexts.Fleet.Domain.Entities;
+namespace FleetTracker.Contexts.Telemetry.Domain.Entities;
 
 public class LocationPoint :  EntityBase
 {
+    public Path path   { get; private set; }
+    public Guid pathId { get; private set; }
     public DateTime timeStamp { get; private set; }
     public Coordinate coordinate  { get; private set; }
     public double fuelLevel { get; private set; } //Talvez criar um Value Object pr�prio? N�o sei ainda
 
+    public LocationPoint()
+    {
+    }
     public LocationPoint(DateTime timeStamp, Coordinate coordinate, double fuelLevel)
     {
         Dictionary<String, Object> parameters = new Dictionary<string, object>
         {
             { "Timestamp", timeStamp },
-            { "Coordinate", coordinate},
-            { "FuelLevel", fuelLevel}
+            { "Coordinate", coordinate },
+            { "FuelLevel", fuelLevel },
         };
         foreach (var parameter in parameters)
         {
             if (parameter.Value == null)
                 throw new ArgumentException($"{parameter.Key} must not be null");
         }
+    }
+
+    public void SetPath(Path path, Guid pathId)
+    {
+        if (path == null ||  pathId == Guid.Empty)
+            throw new ArgumentException("Invalid path");
+        
+        this.path = path;
+        this.pathId = pathId;
     }
 }
