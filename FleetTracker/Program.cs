@@ -15,6 +15,7 @@ using FleetTracker.Contexts.Fleet.UseCases.RegisterNewCar;
 using FleetTracker.Contexts.Telemetry.Application.UseCases.CreatePathUseCase;
 using FleetTracker.Contexts.Telemetry.Application.UseCases.RegisterCarLocation;
 using FleetTracker.Contexts.Telemetry.Domain.Repositories;
+using FleetTracker.Contexts.Telemetry.Infrastructure.Persistance;
 using FleetTracker.Contexts.Telemetry.Infrastructure.Repositories;
 
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -33,6 +34,9 @@ builder.Services.AddDbContext<AuthDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
 builder.Services.AddDbContext<FleetDbContext>(options =>
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+
+builder.Services.AddDbContext<TelemetryDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
 builder.Services.AddControllers();
