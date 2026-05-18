@@ -16,7 +16,7 @@ public class CarRepository : ICarRepository
     
     public async Task<Car> FindById(Guid carId)
     {
-        Car car =  await _database.Cars.FindAsync();
+        Car? car =  await _database.Cars.FindAsync(carId);
         if (car == null)
             throw new KeyNotFoundException($"Car with id {carId} does not exist");
         
@@ -25,7 +25,7 @@ public class CarRepository : ICarRepository
 
     public async Task<Car> FindByPlate(string plate)
     {
-        Car car = await _database.Cars.FirstOrDefaultAsync(c => c.Plate == new LicensePlate(plate));
+        Car? car = await _database.Cars.FirstOrDefaultAsync(c => c.Plate == new LicensePlate(plate));
         if (car == null)
             throw new KeyNotFoundException($"Car with plate {plate} does not exist");
         

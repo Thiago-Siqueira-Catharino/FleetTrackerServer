@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using FleetTracker.Contexts.Fleet.Domain.Entities;
+using FleetTracker.Contexts.Fleet.Domain.ValueObjects;
 
 namespace FleetTracker.Contexts.Fleet.Infrastructure.Persistance;
 
@@ -18,6 +19,10 @@ public class FleetDbContext : DbContext
 
         modelBuilder.Entity<Car>()
             .HasAlternateKey(car => car.Plate);
+
+        modelBuilder.Entity<Car>()
+            .Property(car => car.Plate)
+            .HasConversion(p => p.value, str => new LicensePlate(str));
         
         base.OnModelCreating(modelBuilder);
     }
