@@ -12,7 +12,6 @@ namespace FleetTracker.Contexts.Telemetry.Application.UseCases.RegisterCarLocati
         
         public RegisterCarLocationUseCase(
             ILocationRepository locationRepository, 
-            ICarRepository carRepository,
             IPathRepository pathRepository
             )
         {
