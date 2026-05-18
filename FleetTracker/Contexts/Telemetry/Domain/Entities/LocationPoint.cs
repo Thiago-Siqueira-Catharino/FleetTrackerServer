@@ -11,6 +11,9 @@ public class LocationPoint :  EntityBase
     public Coordinate coordinate  { get; private set; }
     public double fuelLevel { get; private set; } //Talvez criar um Value Object pr�prio? N�o sei ainda
 
+    public LocationPoint()
+    {
+    }
     public LocationPoint(DateTime timeStamp, Coordinate coordinate, double fuelLevel)
     {
         Dictionary<String, Object> parameters = new Dictionary<string, object>
