@@ -1,17 +1,19 @@
 using FleetTracker.Contexts.Fleet.Application.UseCases.GetCarById;
 using Microsoft.AspNetCore.Mvc;
 using FleetTracker.Contexts.Fleet.UseCases.RegisterNewCar;
+using FleetTracker.Contexts.Fleet.Application.UseCases.GetCarLocationHistory;
 
 namespace FleetTracker.Contexts.Fleet.Presentation;
 
 [ApiController]
 [Route("api/[controller]")]
-public class CarsController : ControllerBase
+public class CarController : ControllerBase
 {
     private readonly RegisterNewCarUseCase _registerNewCarUseCase;
     private readonly GetCarByIdUseCase _getCarByIdUseCase;
+    private readonly GetCarLocationHistoryUseCase _getCarLocationHistoryUseCase;
 
-    public CarsController(RegisterNewCarUseCase registerNewCarUseCase, GetCarByIdUseCase getCarByIdUseCase)
+    public CarController(RegisterNewCarUseCase registerNewCarUseCase, GetCarByIdUseCase getCarByIdUseCase)
     {
        _getCarByIdUseCase = getCarByIdUseCase;
        _registerNewCarUseCase = registerNewCarUseCase;
@@ -47,5 +49,25 @@ public class CarsController : ControllerBase
             return NotFound("Veículo não encontrado em Night City.");
 
         return Ok(car);
+    }
+
+    [HttpGet("{id}/rotas")]
+    public async Task<IActionResult> GetPath([FromRoute] Guid id, [FromQuery] DateTime startDate, [FromQuery] DateTime endDate)
+    {
+        var dto = new GetCarLocationHistoryDTO
+        {
+            CarId = id,
+            StartDate = startDate,
+            EndDate = endDate
+        };
+
+        var paths = await _getCarLocationHistoryUseCase.ExecuteAsync(dto);
+
+        if (paths == null || !paths.Any())
+        {
+            return NotFound("Nenhuma rota encontrada para este veículo no período especificado.");
+        }
+
+        return Ok(paths);
     }
 }
