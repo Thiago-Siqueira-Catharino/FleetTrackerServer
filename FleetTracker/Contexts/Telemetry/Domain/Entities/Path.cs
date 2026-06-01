@@ -1,6 +1,6 @@
 ﻿using FleetTracker.Common.Entities;
 
-namespace FleetTracker.Contexts.Fleet.Domain.Entities;
+namespace FleetTracker.Contexts.Telemetry.Domain.Entities;
 
 public class Path : EntityBase
 {
