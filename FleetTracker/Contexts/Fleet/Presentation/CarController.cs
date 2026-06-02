@@ -13,10 +13,11 @@ public class CarController : ControllerBase
     private readonly GetCarByIdUseCase _getCarByIdUseCase;
     private readonly GetCarLocationHistoryUseCase _getCarLocationHistoryUseCase;
 
-    public CarController(RegisterNewCarUseCase registerNewCarUseCase, GetCarByIdUseCase getCarByIdUseCase)
+    public CarController(RegisterNewCarUseCase registerNewCarUseCase, GetCarByIdUseCase getCarByIdUseCase, GetCarLocationHistoryUseCase getCarLocationHistoryUseCase)
     {
        _getCarByIdUseCase = getCarByIdUseCase;
        _registerNewCarUseCase = registerNewCarUseCase;
+       _getCarLocationHistoryUseCase = getCarLocationHistoryUseCase;
     }
     
     [HttpPost("Cadastrar")]
