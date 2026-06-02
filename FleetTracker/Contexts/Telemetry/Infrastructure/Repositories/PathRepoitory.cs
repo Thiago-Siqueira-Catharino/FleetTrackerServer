@@ -30,4 +30,11 @@ public class PathRepository : IPathRepository
         _database.Paths.Update(pathToUpdate);
         await _database.SaveChangesAsync();
     }
+
+    public async Task<IEnumerable<Domain.Entities.Path>> FindByCarIdAsync(Guid carId)
+    {
+        return await _database.Paths
+            .Where(p => p.carId == carId)
+            .ToListAsync();
+    }
 }
