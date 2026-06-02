@@ -1,23 +1,24 @@
 ﻿using FleetTracker.Contexts.Fleet.Domain.Repositories;
 using FleetTracker.Contexts.Fleet.Domain.Entities;
+using FleetTracker.Contexts.Telemetry.Domain.Entities;
+using FleetTracker.Contexts.Telemetry.Domain.Repositories;
+using Path = FleetTracker.Contexts.Telemetry.Domain.Entities.Path;
 
 namespace FleetTracker.Contexts.Fleet.Application.UseCases.GetCarLocationHistory
 {
     public class GetCarLocationHistoryUseCase
     {
-        private readonly ILocationRepository _locationRepository; //Criar ainda
+        private readonly IPathRepository _pathRepository; //Criar ainda
 
-        public GetCarLocationHistoryUseCase(ILocationRepository locationRepository)
+        public GetCarLocationHistoryUseCase(IPathRepository pathRepository)
         {
-            _locationRepository = locationRepository;
+            _pathRepository = pathRepository;
         }
 
-        public async Task<IEnumerable<LocationPoint>> ExecuteAsync(GetCarLocationHistoryDTO request)
+        public async Task<IEnumerable<Path>> ExecuteAsync(GetCarLocationHistoryDTO request)
         {
-            var history = await _locationRepository.GetHistoryByCarAndDateAsync(
-                request.CarId,
-                request.StartDate,
-                request.EndDate
+            var history = await _pathRepository.FindByCarIdAsync(
+                request.CarId
             );
 
             return history;
