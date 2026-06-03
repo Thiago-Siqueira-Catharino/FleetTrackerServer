@@ -6,6 +6,7 @@ public interface ICarRepository
 {
     public Task<Car> FindById(Guid id);
     public Task<Car> FindByPlate(string plate);
+    public Task<Car> FindByTag(string tag);
     public Task Create(Car car);
     public Task<List<Car>> GetAll();
 }

@@ -1,4 +1,5 @@
 using FleetTracker.Contexts.Fleet.Application.UseCases.GetCarById;
+using FleetTracker.Contexts.Fleet.Application.UseCases.GetCarByTag;
 using Microsoft.AspNetCore.Mvc;
 using FleetTracker.Contexts.Fleet.UseCases.RegisterNewCar;
 using FleetTracker.Contexts.Fleet.Application.UseCases.GetCarLocationHistory;
@@ -14,18 +15,21 @@ public class CarController : ControllerBase
     private readonly GetCarByIdUseCase _getCarByIdUseCase;
     private readonly GetCarLocationHistoryUseCase _getCarLocationHistoryUseCase;
     private readonly ListCarsUseCase _listCarsUseCase;
+    private readonly GetCarByTagUseCase _getCarByTagUseCase;
 
     public CarController(
         RegisterNewCarUseCase registerNewCarUseCase, 
         GetCarByIdUseCase getCarByIdUseCase, 
         GetCarLocationHistoryUseCase getCarLocationHistoryUseCase,
-        ListCarsUseCase listCarsUseCase
+        ListCarsUseCase listCarsUseCase,
+        GetCarByTagUseCase getCarByTagUseCase
         )
     {
        _getCarByIdUseCase = getCarByIdUseCase;
        _registerNewCarUseCase = registerNewCarUseCase;
        _getCarLocationHistoryUseCase = getCarLocationHistoryUseCase;
        _listCarsUseCase = listCarsUseCase;
+       _getCarByTagUseCase = getCarByTagUseCase;
     }
     
     [HttpPost("Cadastrar")]
@@ -54,7 +58,7 @@ public class CarController : ControllerBase
         return Ok(await _listCarsUseCase.RunAsync());
     }
     
-    [HttpGet("Buscar/{id}")]
+    [HttpGet("Buscar/id={id}")]
     public async Task<IActionResult> GetById(Guid id)
     {
         var dto = new GetCarByIdDTO(id);
@@ -64,6 +68,20 @@ public class CarController : ControllerBase
             return NotFound("Veículo não encontrado em Night City.");
 
         return Ok(car);
+    }
+
+    [HttpGet("Buscar/tag={tag}")]
+    public async Task<IActionResult> GetByTag(string tag)
+    {
+        try
+        {
+            return Ok(await _getCarByTagUseCase.RunAsync(tag));
+        }
+        catch (KeyNotFoundException e)
+        {
+            return NotFound(e.Message);
+        }
+        
     }
 
     [HttpGet("{id}/rotas")]

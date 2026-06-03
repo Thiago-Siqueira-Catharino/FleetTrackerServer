@@ -42,4 +42,13 @@ public class CarRepository : ICarRepository
     {
         return _database.Cars.ToListAsync();
     }
+
+    public async Task<Car> FindByTag(string tag)
+    {
+        Car? car = await _database.Cars.FirstOrDefaultAsync(c => c.TagUid == tag);
+        if (car == null)
+            throw new KeyNotFoundException($"Car with tag {tag} does not exist");
+        
+        return car;
+    }
 }
