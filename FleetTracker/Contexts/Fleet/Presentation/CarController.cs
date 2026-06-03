@@ -2,6 +2,7 @@ using FleetTracker.Contexts.Fleet.Application.UseCases.GetCarById;
 using Microsoft.AspNetCore.Mvc;
 using FleetTracker.Contexts.Fleet.UseCases.RegisterNewCar;
 using FleetTracker.Contexts.Fleet.Application.UseCases.GetCarLocationHistory;
+using FleetTracker.Contexts.Fleet.Application.UseCases.ListCars;
 
 namespace FleetTracker.Contexts.Fleet.Presentation;
 
@@ -12,12 +13,19 @@ public class CarController : ControllerBase
     private readonly RegisterNewCarUseCase _registerNewCarUseCase;
     private readonly GetCarByIdUseCase _getCarByIdUseCase;
     private readonly GetCarLocationHistoryUseCase _getCarLocationHistoryUseCase;
+    private readonly ListCarsUseCase _listCarsUseCase;
 
-    public CarController(RegisterNewCarUseCase registerNewCarUseCase, GetCarByIdUseCase getCarByIdUseCase, GetCarLocationHistoryUseCase getCarLocationHistoryUseCase)
+    public CarController(
+        RegisterNewCarUseCase registerNewCarUseCase, 
+        GetCarByIdUseCase getCarByIdUseCase, 
+        GetCarLocationHistoryUseCase getCarLocationHistoryUseCase,
+        ListCarsUseCase listCarsUseCase
+        )
     {
        _getCarByIdUseCase = getCarByIdUseCase;
        _registerNewCarUseCase = registerNewCarUseCase;
        _getCarLocationHistoryUseCase = getCarLocationHistoryUseCase;
+       _listCarsUseCase = listCarsUseCase;
     }
     
     [HttpPost("Cadastrar")]
@@ -40,6 +48,12 @@ public class CarController : ControllerBase
         }
     }
 
+    [HttpGet("Buscar")]
+    public async Task<IActionResult> GetAll()
+    {
+        return Ok(await _listCarsUseCase.RunAsync());
+    }
+    
     [HttpGet("Buscar/{id}")]
     public async Task<IActionResult> GetById(Guid id)
     {

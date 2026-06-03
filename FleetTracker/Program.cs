@@ -9,6 +9,7 @@ using FleetTracker.Contexts.Auth.Infrastructure.Repositories;
 
 using FleetTracker.Contexts.Fleet.Application.UseCases.GetCarById;
 using FleetTracker.Contexts.Fleet.Application.UseCases.GetCarLocationHistory;
+using FleetTracker.Contexts.Fleet.Application.UseCases.ListCars;
 using FleetTracker.Contexts.Fleet.Infrastructure.Persistance;
 using FleetTracker.Contexts.Fleet.Infrastructure.Repositories;
 using FleetTracker.Contexts.Fleet.UseCases.RegisterNewCar;
@@ -61,6 +62,7 @@ builder.Services.AddScoped<LoginUseCase>();
 //Fleet DI
 builder.Services.AddScoped<RegisterNewCarUseCase>();
 builder.Services.AddScoped<GetCarByIdUseCase>();
+builder.Services.AddScoped<ListCarsUseCase>();
 builder.Services.AddScoped<GetCarLocationHistoryUseCase>();
 builder.Services.AddScoped<ICarRepository, CarRepository>();
 builder.Services.AddScoped<RegisterNewCarUseCase>();

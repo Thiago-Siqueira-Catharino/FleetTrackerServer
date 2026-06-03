@@ -37,4 +37,9 @@ public class CarRepository : ICarRepository
         await _database.Cars.AddAsync(car);
         await _database.SaveChangesAsync();
     }
+    
+    public Task<List<Car>> GetAll()
+    {
+        return _database.Cars.ToListAsync();
+    }
 }
