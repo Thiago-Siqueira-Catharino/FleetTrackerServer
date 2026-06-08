@@ -19,15 +19,16 @@ public class TelemetryDbContext  : DbContext
             .HasKey(point => point.Id);
 
         modelBuilder.Entity<LocationPoint>()
-            .HasOne<Domain.Entities.Path>()
-            .WithMany()
-            .HasForeignKey(point => point.pathId);
+            .HasOne(point => point.path)
+            .WithMany(path => path.locationPoints)
+            .HasForeignKey(point => point.pathId)
+            .HasPrincipalKey(point => point.Id);
 
         modelBuilder.Entity<LocationPoint>()
             .OwnsOne(lp => lp.coordinate, coordinate =>
             {
-                coordinate.Property(c => c.latitude).HasColumnName("latitude");
-                coordinate.Property(c => c.longitude).HasColumnName("longitude");
+                coordinate.Property(c => c.latitude).HasColumnName("latitude").IsRequired();
+                coordinate.Property(c => c.longitude).HasColumnName("longitude").IsRequired();
             });
         
         modelBuilder.Entity<Domain.Entities.Path>()
