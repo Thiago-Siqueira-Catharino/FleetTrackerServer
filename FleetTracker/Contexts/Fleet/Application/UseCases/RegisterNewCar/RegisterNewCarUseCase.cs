@@ -23,7 +23,7 @@ public class RegisterNewCarUseCase
         
         carToRegister.SetTag(car.tagUid);
         
-        _carRepository.Create(carToRegister);
+        await _carRepository.Create(carToRegister);
         return carToRegister;
     }
 }
