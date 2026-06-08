@@ -1,6 +1,7 @@
 using FleetTracker.Contexts.Telemetry.Domain.Repositories;
 using FleetTracker.Contexts.Telemetry.Infrastructure.Persistance;
 using Microsoft.EntityFrameworkCore;
+using Path = FleetTracker.Contexts.Telemetry.Domain.Entities.Path;
 
 namespace FleetTracker.Contexts.Telemetry.Infrastructure.Repositories;
 
@@ -31,10 +32,18 @@ public class PathRepository : IPathRepository
         await _database.SaveChangesAsync();
     }
 
-    public async Task<IEnumerable<Domain.Entities.Path>> FindByCarIdAsync(Guid carId)
+    public async Task<List<Domain.Entities.Path>> FindByCarIdAsync(Guid carId)
     {
         return await _database.Paths
             .Where(p => p.carId == carId)
+            .OrderByDescending(p => p.createdAt)
+            .ToListAsync();
+    }
+    
+    public Task<List<Path>> GetAllAsync()
+    {
+        return _database.Paths
+            .OrderByDescending(path => path.createdAt)
             .ToListAsync();
     }
 }
