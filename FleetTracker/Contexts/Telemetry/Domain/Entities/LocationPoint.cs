@@ -5,36 +5,43 @@ namespace FleetTracker.Contexts.Telemetry.Domain.Entities;
 
 public class LocationPoint :  EntityBase
 {
-    public Path path   { get; private set; }
-    public Guid pathId { get; private set; }
-    public DateTime timeStamp { get; private set; }
-    public Coordinate coordinate  { get; private set; }
-    public double fuelLevel { get; private set; } //Talvez criar um Value Object pr�prio? N�o sei ainda
+    public Path path   { get; set; }
+    public Guid pathId { get; set; }
+    public DateTime timeStamp { get; set; }
+    public Coordinate coordinate  { get; set; }
+    public double fuelLevel { get; set; } //Talvez criar um Value Object pr�prio? N�o sei ainda
+    public double speed { get; set; }
 
     public LocationPoint()
     {
     }
-    public LocationPoint(DateTime timeStamp, Coordinate coordinate, double fuelLevel)
+    public LocationPoint(DateTime timeStamp, Coordinate coordinate, double fuelLevel, double speed)
     {
         Dictionary<String, Object> parameters = new Dictionary<string, object>
         {
             { "Timestamp", timeStamp },
             { "Coordinate", coordinate },
-            { "FuelLevel", fuelLevel },
+            { "Fuel level", fuelLevel },
+            { "Speed", speed}
         };
         foreach (var parameter in parameters)
         {
             if (parameter.Value == null)
                 throw new ArgumentException($"{parameter.Key} must not be null");
         }
+        
+        this.timeStamp = timeStamp;
+        this.coordinate = coordinate;
+        this.fuelLevel = fuelLevel;
+        this.speed = speed;
     }
 
-    public void SetPath(Path path, Guid pathId)
+    public void SetPath(Path path)
     {
-        if (path == null ||  pathId == Guid.Empty)
+        if (path == null ||  path.Id == Guid.Empty)
             throw new ArgumentException("Invalid path");
         
         this.path = path;
-        this.pathId = pathId;
+        pathId = path.Id;
     }
 }
