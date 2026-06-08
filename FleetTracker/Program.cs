@@ -14,6 +14,9 @@ using FleetTracker.Contexts.Fleet.Infrastructure.Repositories;
 using FleetTracker.Contexts.Fleet.UseCases.RegisterNewCar;
 
 using FleetTracker.Contexts.Telemetry.Application.UseCases.CreatePathUseCase;
+using FleetTracker.Contexts.Telemetry.Application.UseCases.ListLocationPointByPathIdUseCase;
+using FleetTracker.Contexts.Telemetry.Application.UseCases.ListPathByCarIdUseCase;
+using FleetTracker.Contexts.Telemetry.Application.UseCases.ListPathsUseCase;
 using FleetTracker.Contexts.Telemetry.Application.UseCases.RegisterCarLocation;
 using FleetTracker.Contexts.Telemetry.Domain.Repositories;
 using FleetTracker.Contexts.Telemetry.Infrastructure.Persistance;
@@ -70,6 +73,9 @@ builder.Services.AddScoped<GetCarByTagUseCase>();
 //Telemetry DI
 builder.Services.AddScoped<CreatePathUseCase>();
 builder.Services.AddScoped<RegisterCarLocationUseCase>();
+builder.Services.AddScoped<ListPathsUseCase>();
+builder.Services.AddScoped<ListPathByCarIdUseCase>();
+builder.Services.AddScoped<ListLocationPointByPathUseCase>();
 builder.Services.AddScoped<IPathRepository, PathRepository>();
 builder.Services.AddScoped<ILocationRepository, LocationPointRepository>();
 
