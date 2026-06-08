@@ -5,7 +5,7 @@ namespace FleetTracker.Contexts.Telemetry.Domain.Entities;
 public class Path : EntityBase
 {
     public Guid carId { get; private set;  }
-    private List<LocationPoint> locationPoints { get; set; } = new List<LocationPoint>();
+    public List<LocationPoint> locationPoints { get; set; } = new List<LocationPoint>();
 
     public Path(Guid carId)
     {
