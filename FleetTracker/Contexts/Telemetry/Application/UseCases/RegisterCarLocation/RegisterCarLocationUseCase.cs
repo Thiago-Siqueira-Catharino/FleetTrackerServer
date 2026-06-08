@@ -22,22 +22,25 @@ namespace FleetTracker.Contexts.Telemetry.Application.UseCases.RegisterCarLocati
 
         public async Task RunAsync(RegisterCarLocationDTO request)
         {
-            var coordinate = new Coordinate(request.Latitude, request.Longitude);
-
+            var newCoordinate = new Coordinate(request.Latitude, request.Longitude);
+            Console.WriteLine("New coordinate: " + newCoordinate.latitude + " " + newCoordinate.longitude);
+            
             var locationPoint = new LocationPoint(
                 timeStamp: request.Timestamp,
-                coordinate: coordinate,
-                fuelLevel: request.FuelLevel
+                coordinate: newCoordinate,
+                fuelLevel: request.FuelLevel,
+                speed: request.Speed
                 //driverId: request.DriverId,
                 //carId: request.CarId
             );
+            Console.WriteLine($"New location point: time-{locationPoint.timeStamp} fuel-level-{locationPoint.fuelLevel}");
 
             Domain.Entities.Path path = await _pathRepository.FindByIdAsync(request.PathId);
 
             if (path == null)
                 throw new ArgumentException("Esse caminho ainda não existe");
             
-            locationPoint.SetPath(path, path.Id);
+            locationPoint.SetPath(path);
             path.AddLocationPoint(locationPoint);
             
             await _locationRepository.AddAsync(locationPoint);
