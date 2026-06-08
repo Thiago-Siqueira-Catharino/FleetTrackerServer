@@ -20,10 +20,11 @@ public class LocationPointRepository : ILocationRepository
         await _database.SaveChangesAsync();
     }
 
-    public async Task<IEnumerable<LocationPoint>> GetByPathIdAsync(Guid toFind)
+    public async Task<List<LocationPoint>> GetByPathIdAsync(Guid toFind)
     {
         return await _database.LocationPoints
             .Where(point => point.pathId == toFind)
+            .OrderByDescending(point => point.timeStamp)
             .ToListAsync();
     }
 }

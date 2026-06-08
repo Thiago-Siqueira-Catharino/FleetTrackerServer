@@ -6,5 +6,5 @@ namespace FleetTracker.Contexts.Telemetry.Domain.Repositories;
 public interface ILocationRepository
 {
     public Task AddAsync(LocationPoint request);
-    public Task<IEnumerable<LocationPoint>> GetByPathIdAsync(Guid pathId);
+    public Task<List<LocationPoint>> GetByPathIdAsync(Guid pathId);
 }
