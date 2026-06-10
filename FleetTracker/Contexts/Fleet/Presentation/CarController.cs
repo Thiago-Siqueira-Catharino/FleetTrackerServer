@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using FleetTracker.Contexts.Fleet.UseCases.RegisterNewCar;
 using FleetTracker.Contexts.Fleet.Application.UseCases.GetCarLocationHistory;
 using FleetTracker.Contexts.Fleet.Application.UseCases.ListCars;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FleetTracker.Contexts.Fleet.Presentation;
 
@@ -32,6 +33,7 @@ public class CarController : ControllerBase
        _getCarByTagUseCase = getCarByTagUseCase;
     }
     
+    [Authorize(Roles = "FieldAgent")]
     [HttpPost("Cadastrar")]
     public async Task<IActionResult> Create([FromBody] RegisterCarDTO request)
     {
@@ -51,13 +53,15 @@ public class CarController : ControllerBase
             return BadRequest(ex.Message);
         }
     }
-
+    
+    [Authorize(Roles = "Admin")]
     [HttpGet("Buscar")]
     public async Task<IActionResult> GetAll()
     {
         return Ok(await _listCarsUseCase.RunAsync());
     }
     
+    [Authorize(Roles = "Admin")]
     [HttpGet("Buscar/id={id}")]
     public async Task<IActionResult> GetById(Guid id)
     {
@@ -69,7 +73,8 @@ public class CarController : ControllerBase
 
         return Ok(car);
     }
-
+    
+    [Authorize(Roles = "Admin")]
     [HttpGet("Buscar/tag={tag}")]
     public async Task<IActionResult> GetByTag(string tag)
     {
@@ -83,7 +88,8 @@ public class CarController : ControllerBase
         }
         
     }
-
+    
+    [Authorize(Roles = "Admin")]
     [HttpGet("{id}/rotas")]
     public async Task<IActionResult> GetPath([FromRoute] Guid id, [FromQuery] DateTime startDate, [FromQuery] DateTime endDate)
     {

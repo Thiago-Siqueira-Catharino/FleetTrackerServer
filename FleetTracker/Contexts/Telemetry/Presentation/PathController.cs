@@ -20,13 +20,15 @@ public class PathController(
     {
         return Ok(await createPathUseCase.RunAsync(dto));
     }
-
+    
+    [Authorize(Roles = "Admin")]
     [HttpGet("search/id={carId}")]
     public async Task<IActionResult> ListPathsByCarId(Guid carId)
     {
         return Ok(await listPathByCarIdUseCase.RunAsync(carId));
     }
-
+    
+    [Authorize(Roles = "Admin")]
     [HttpGet("search/")]
     public async Task<IActionResult> ListPaths()
     {
